@@ -1,1 +1,5 @@
-export default {}
+export default {
+    setCurrentWeather(state,payload) {
+        state.currentWeather = payload
+    }
+}
