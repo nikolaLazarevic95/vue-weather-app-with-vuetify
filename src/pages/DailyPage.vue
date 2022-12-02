@@ -1,6 +1,5 @@
 <template>
   <section>Daily page</section>
-  {{currData}}
 </template>
 
 <script>
@@ -12,15 +11,10 @@ export default {
     };
   },
   computed: {
-    currData() {
-      return this.$store.getters["today/getCurrentWeather"];
-    },
+    
   },
   created() {
-    this.$store.dispatch("today/getCurrentWeather", {
-        city: this.city,
-        APIkey: this.APIkey
-    });
+    
   },
 };
 </script>

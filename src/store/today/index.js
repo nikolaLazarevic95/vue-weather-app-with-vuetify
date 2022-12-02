@@ -7,6 +7,7 @@ export default {
     state( ) {
         return {
             currentWeather:null,
+            cities: null,
         }
     },
     mutations,
