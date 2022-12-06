@@ -4,15 +4,15 @@
       <v-btn @click="updCities" color="success">text</v-btn>
 
       <div>{{ currUserCities }}</div>  -->
-  <TodayWeatherView></TodayWeatherView>
+  <CurrWeatherView></CurrWeatherView>
 </template>
 
 <script>
-import TodayWeatherView from "../components/views/TodayWeatherView.vue";
+import CurrWeatherView from "../components/views/CurrWeatherView.vue";
 
 export default {
   name: "TodayPage",
-  components: { TodayWeatherView },
+  components: { CurrWeatherView },
   data() {
     return {
       APIkey: "55e1dfdb11ad536b67d886fb79270989",
