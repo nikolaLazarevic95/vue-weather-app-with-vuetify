@@ -1,7 +1,7 @@
 export default {
   async getCurrentWeather(context, payload) {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${payload.city}&appid=${payload.APIkey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${payload.city}&appid=${payload.APIkey}&units=metric`
     );
 
     const responseData = await response.json();
@@ -47,7 +47,7 @@ export default {
     console.log(responseData);
 
     if (!response.ok) {
-      //console.log(responseData);
+      console.log(responseData);
       const error = new Error(
         responseData.message || ' Failed to add a record'
       );
@@ -60,7 +60,17 @@ export default {
     for ( const key in responseData) {
       const city = {
         id: key,
-        name: responseData[key].data.name
+        name: responseData[key].data.name,
+        windSpeed: responseData[key].data.wind.speed,
+        visibility: responseData[key].data.visibility,
+        feelsLike: responseData[key].data.main.feels_like,
+        humidity: responseData[key].data.main.humidity,
+        temp: responseData[key].data.main.temp,
+        tempMax: responseData[key].data.main.temp_max,
+        tempMin: responseData[key].data.main.temp_min,
+        clouds: responseData[key].data.clouds.all,
+        icon: responseData[key].data.weather[0].main,
+      
       }
       cities.push(city)
     }

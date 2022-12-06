@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import TodayPage from './pages/TodayPage.vue';
+import CurrentPage from './pages/CurrentPage.vue';
 import HourlyPage from './pages/HourlyPage.vue';
 import DailyPage from './pages/DailyPage.vue';
 import AirPollutionPage from './pages/AirPollutionPage.vue';
@@ -10,11 +10,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/today',
+      redirect: '/current',
     },
     {
-      path: '/today',
-      component: TodayPage,
+      path: '/current',
+      component: CurrentPage,
     },
     {
       path: '/hourly',

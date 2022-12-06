@@ -1,26 +1,22 @@
 <template>
-  <v-container grid-list-xs>
-    <v-card>
-      <div>{{ currData }}</div>
+   <!-- <div>{{ currData }}</div>
 
       <v-btn @click="updCities" color="success">text</v-btn>
 
-      <div>{{ currUserCities }}</div>
-
-    </v-card>
-  </v-container>
+      <div>{{ currUserCities }}</div>  -->
+  <TodayWeatherView></TodayWeatherView>
 </template>
 
 <script>
-// import axios from "axios"
-// import db from "../firebase/firebaseinit"
+import TodayWeatherView from "../components/views/TodayWeatherView.vue";
 
 export default {
   name: "TodayPage",
+  components: { TodayWeatherView },
   data() {
     return {
       APIkey: "55e1dfdb11ad536b67d886fb79270989",
-      city: "detroit",
+      city: "phenix",
     };
   },
   methods: {
@@ -36,20 +32,15 @@ export default {
     },
     currUserCities() {
       return this.$store.getters["today/getCities"];
-
-    }
-
+    },
   },
   async created() {
+    
     await this.$store.dispatch("today/getCurrentWeather", {
       city: this.city,
       APIkey: this.APIkey,
     });
-    // await this.$store.dispatch("today/updUserCities", {
-    //   city: this.city,
-    //   dataObj: this.currData,
-    // });
-    await this.$store.dispatch("today/getUserCities")
+    await this.$store.dispatch("today/getUserCities");
   },
 };
 </script>
