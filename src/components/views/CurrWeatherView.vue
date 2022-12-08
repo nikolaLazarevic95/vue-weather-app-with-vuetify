@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="4" v-for="data in currUserCities" :key="data.id">
-        <v-card  class="mx-auto" max-width="368" variant="tonal">
+        <v-card class="mx-auto" max-width="368" variant="tonal">
           <v-card-item :title="data.name">
             <template v-slot:subtitle>
               Real feel <span>{{ Math.round(data.feelsLike) }}&deg;C</span>
@@ -46,6 +46,12 @@
                   icon="mdi-weather-lightning"
                   size="88"
                 ></v-icon>
+                <v-icon
+                  v-if="data.icon == 'Mist'"
+                  color="#90CAF9"
+                  icon="mdi-weather-fog"
+                  size="88"
+                ></v-icon>
               </v-col>
             </v-row>
           </v-card-text>
@@ -58,9 +64,19 @@
             </v-list-item>
 
             <v-list-item density="compact" prepend-icon="mdi-water">
-              <v-list-item-subtitle>{{data.humidity}}%</v-list-item-subtitle>
+              <v-list-item-subtitle>{{ data.humidity }}%</v-list-item-subtitle>
             </v-list-item>
           </div>
+          <v-card-actions>
+            <v-btn
+              class="ml-1"
+              variant="outlined"
+              @click.stop="deleteCity(data.id)"
+            >
+              Delete
+              <v-icon end icon="mdi-delete"></v-icon>
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -70,15 +86,29 @@
 <script>
 export default {
   data: () => ({
-    
+    newCities: null,
   }),
+  methods: {
+    deleteCity(id) {
+      // console.log(id);
+      // console.log(typeof id);
+      // this.newCities = this.currUserCities.filter((city) => city.id !== id);
+      this.newCities = id;
+      this.$store.commit('setSelectedID', this.newCities)
+
+
+      // console.log(this.currUserCities);
+      // console.log(this.newCities);  //! ne moze ovako, jer je id gore
+      //  this.$store.commit('today/setCities', newCities)
+      this.$store.dispatch("today/deleteCity");
+      // this.$router.go();
+    },
+  },
   computed: {
     currUserCities() {
       return this.$store.getters["today/getCities"];
     },
   },
-  created() {
-   
-  },
+  created() {},
 };
 </script>

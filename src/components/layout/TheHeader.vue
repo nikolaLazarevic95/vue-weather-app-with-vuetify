@@ -86,12 +86,12 @@ export default {
       await this.$store.dispatch("today/updUserCities", {
         data: this.currData,
       });
-      this.$router.go()
+      // this.$router.go()
     },
   },
   computed: {
     currData() {
-      return this.$store.getters["today/getCurrentWeather"];
+      return this.$store.getters["today/getCurrentWeather"][0];
     },
   },
 };

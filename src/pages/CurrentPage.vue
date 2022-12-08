@@ -1,9 +1,9 @@
 <template>
-   <!-- <div>{{ currData }}</div>
+   <!-- <div>{{ currData }}</div> -->
 
-      <v-btn @click="updCities" color="success">text</v-btn>
+      <!-- <v-btn @click="updCities" color="success">text</v-btn> -->
 
-      <div>{{ currUserCities }}</div>  -->
+      <!-- <div>{{ currUserCities }}</div>  -->
   <CurrWeatherView></CurrWeatherView>
 </template>
 
@@ -20,27 +20,28 @@ export default {
     };
   },
   methods: {
-    async updCities() {
-      await this.$store.dispatch("today/updUserCities", {
-        data: this.currData,
-      });
-    },
+    // async updCities() {
+    //   await this.$store.dispatch("today/updUserCities", {
+    //     data: this.currData,
+    //   });
+    // },
   },
   computed: {
-    currData() {
-      return this.$store.getters["today/getCurrentWeather"];
-    },
+    // currData() {
+    //   return this.$store.getters["today/getCurrentWeather"];
+    // },
     currUserCities() {
       return this.$store.getters["today/getCities"];
     },
   },
   async created() {
     
-    await this.$store.dispatch("today/getCurrentWeather", {
-      city: this.city,
-      APIkey: this.APIkey,
-    });
-    await this.$store.dispatch("today/getUserCities");
+    // await this.$store.dispatch("today/getCurrentWeather", {
+    //   city: this.city,
+    //   APIkey: this.APIkey,
+    // });
+     await this.$store.dispatch("today/getUserCities");
+    // console.log(this.currData);
   },
 };
 </script>
