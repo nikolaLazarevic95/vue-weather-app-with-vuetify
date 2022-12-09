@@ -6,12 +6,11 @@ import {
   addDoc,
   doc,
   deleteDoc,
+  // updateDoc,
 } from "firebase/firestore";
 
-
-const citiesCollectionRef = collection(db, "cities")
+const citiesCollectionRef = collection(db, "cities");
 export default {
-
   async getCurrentWeather(context, payload) {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${payload.city}&appid=${payload.APIkey}&units=metric`
@@ -128,6 +127,7 @@ export default {
     // get real time updates
     onSnapshot(collection(db, "cities"), (querySnapshot) => {
       const cities = [];
+      const cityNames = [];
       querySnapshot.forEach((doc) => {
         const city = {
           id: doc.id,
@@ -142,34 +142,29 @@ export default {
           clouds: doc.data().clouds,
           icon: doc.data().data.icon,
         };
+
+        cityNames.push(doc.data().data.name);
+
         cities.push(city);
       });
       context.commit("setCities", cities);
+      context.commit("setCityNames", cityNames, {root: true});
     });
   },
 
   deleteCity(context) {
-    // console.log(payload.id);
-    // console.log(`${payload.id}`);
-    // console.log(this.$store.getters.getSelectedID);
-
-    // const response = await fetch(
-    //   `https://vue-weather-app-28d8b-default-rtdb.firebaseio.com/cities/${payload.id}.json`,
-    //   {
-    //     method: "DELETE",
-    //   }
-    // );
-    // const responseData = await response.json();
-    // console.log(responseData);
-    // if (!response.ok) {
-    //   const error = new Error(
-    //     responseData.message || " Failed to delete the city"
-    //   );
-    //   throw error;
-    // }
-    const id =  context.rootGetters.getSelectedID
+    const id = context.rootGetters.getSelectedID;
 
     console.log(id);
     deleteDoc(doc(citiesCollectionRef, id));
   },
+
+  // updateCity(context) {  //! testing update
+  //   const id = context.rootGetters.getSelectedID;
+
+  //   updateDoc(doc(citiesCollectionRef, id), {
+  //     "data.name": 'Belgrade'  // nested
+  //     name: 'Belgrade'  // direct
+  //   })
+  // }
 };

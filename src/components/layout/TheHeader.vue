@@ -79,11 +79,11 @@ export default {
   },
   methods: {
     async addCity() {
-      await this.$store.dispatch("today/getCurrentWeather", {
+      await this.$store.dispatch("current/getCurrentWeather", {
         city: this.search,
         APIkey: this.APIkey,
       });
-      await this.$store.dispatch("today/updUserCities", {
+      await this.$store.dispatch("current/updUserCities", {
         data: this.currData,
       });
       // this.$router.go()
@@ -91,7 +91,7 @@ export default {
   },
   computed: {
     currData() {
-      return this.$store.getters["today/getCurrentWeather"][0];
+      return this.$store.getters["current/getCurrentWeather"][0];
     },
   },
 };

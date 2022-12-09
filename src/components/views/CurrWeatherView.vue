@@ -52,6 +52,12 @@
                   icon="mdi-weather-fog"
                   size="88"
                 ></v-icon>
+                <v-icon
+                  v-if="data.icon == 'Fog'"
+                  color="#90CAF9"
+                  icon="mdi-weather-fog"
+                  size="88"
+                ></v-icon>
               </v-col>
             </v-row>
           </v-card-text>
@@ -90,23 +96,17 @@ export default {
   }),
   methods: {
     deleteCity(id) {
-      // console.log(id);
-      // console.log(typeof id);
-      // this.newCities = this.currUserCities.filter((city) => city.id !== id);
       this.newCities = id;
-      this.$store.commit('setSelectedID', this.newCities)
+      this.$store.commit("setSelectedID", this.newCities);
 
-
-      // console.log(this.currUserCities);
-      // console.log(this.newCities);  //! ne moze ovako, jer je id gore
-      //  this.$store.commit('today/setCities', newCities)
-      this.$store.dispatch("today/deleteCity");
+      this.$store.dispatch("current/deleteCity");
+      // this.$store.dispatch("current/updateCity"); //tested updating
       // this.$router.go();
     },
   },
   computed: {
     currUserCities() {
-      return this.$store.getters["today/getCities"];
+      return this.$store.getters["current/getCities"];
     },
   },
   created() {},

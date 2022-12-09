@@ -1,9 +1,12 @@
 <template>
-   <!-- <div>{{ currData }}</div> -->
+  <!-- <div>{{ currData }}</div> -->
 
-      <!-- <v-btn @click="updCities" color="success">text</v-btn> -->
+  <!-- <v-btn @click="updCities" color="success">text</v-btn> -->
 
-      <!-- <div>{{ currUserCities }}</div>  -->
+  <!-- <div>{{ currUserCities }}</div>  -->
+  <!-- <div>
+    {{ currCityNamesArr }}
+  </div> -->
   <CurrWeatherView></CurrWeatherView>
 </template>
 
@@ -11,7 +14,7 @@
 import CurrWeatherView from "../components/views/CurrWeatherView.vue";
 
 export default {
-  name: "TodayPage",
+  name: "CurrentPage",
   components: { CurrWeatherView },
   data() {
     return {
@@ -19,29 +22,17 @@ export default {
       city: "phenix",
     };
   },
-  methods: {
-    // async updCities() {
-    //   await this.$store.dispatch("today/updUserCities", {
-    //     data: this.currData,
-    //   });
-    // },
-  },
+  methods: {},
   computed: {
-    // currData() {
-    //   return this.$store.getters["today/getCurrentWeather"];
-    // },
     currUserCities() {
-      return this.$store.getters["today/getCities"];
+      return this.$store.getters["current/getCities"];
+    },
+    currCityNamesArr() {
+      return this.$store.getters.getCurrCityNamesArray;
     },
   },
   async created() {
-    
-    // await this.$store.dispatch("today/getCurrentWeather", {
-    //   city: this.city,
-    //   APIkey: this.APIkey,
-    // });
-     await this.$store.dispatch("today/getUserCities");
-    // console.log(this.currData);
+    await this.$store.dispatch("current/getUserCities");
   },
 };
 </script>

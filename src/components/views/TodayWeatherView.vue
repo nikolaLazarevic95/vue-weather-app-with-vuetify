@@ -74,7 +74,7 @@ export default {
   }),
   computed: {
     currUserCities() {
-      return this.$store.getters["today/getCities"];
+      return this.$store.getters["current/getCities"];
     },
   },
   created() {

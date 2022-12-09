@@ -8,6 +8,7 @@ export default {
       userId: "3",
       APIkey: "55e1dfdb11ad536b67d886fb79270989",
       selectedID: null,
+      currCityNamesArr: null,
 
     };
   },

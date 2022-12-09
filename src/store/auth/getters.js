@@ -4,5 +4,8 @@ export default {
     },
     getSelectedID(state) {
         return state.selectedID
+    },
+    getCurrCityNamesArray(state) {
+        return state.currCityNamesArr
     }
 }
