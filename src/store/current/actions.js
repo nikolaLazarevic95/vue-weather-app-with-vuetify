@@ -148,7 +148,7 @@ export default {
         cities.push(city);
       });
       context.commit("setCities", cities);
-      context.commit("setCityNames", cityNames, {root: true});
+      context.commit("setCityNames", cityNames, { root: true });
     });
   },
 

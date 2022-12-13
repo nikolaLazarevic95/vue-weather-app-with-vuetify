@@ -48,10 +48,10 @@ export default {
     };
   },
   computed: {},
-  created() {
-    this.$store.dispatch("daily/getDailyCities", {
+  async created() {
+    await this.$store.dispatch("daily/getDailyCities", {
       city: this.city,
-      APIkey: this.APIkey,
+      // APIkey: this.APIkey,
     });
   },
 };
