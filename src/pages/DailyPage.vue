@@ -20,6 +20,9 @@
         </v-card>
       </v-col>
     </v-row>
+    <div>
+      {{ dailyData }}
+    </div>
   </v-container>
 </template>
 
@@ -47,12 +50,13 @@ export default {
       ],
     };
   },
-  computed: {},
+  computed: {
+    dailyData() {
+      return this.$store.getters["daily/getDailyDataAllCities"];
+    },
+  },
   async created() {
-    await this.$store.dispatch("daily/getDailyCities", {
-      city: this.city,
-      // APIkey: this.APIkey,
-    });
+    await this.$store.dispatch("daily/getDailyDataAllCities");
   },
 };
 </script>

@@ -55,7 +55,6 @@
 
 <script>
 export default {
-
   data() {
     return {
       search: null,
@@ -83,9 +82,14 @@ export default {
         city: this.search,
         APIkey: this.APIkey,
       });
+      await this.$store.dispatch("daily/getDailyDataCurrCity", {
+        city: this.search,
+      });
       await this.$store.dispatch("current/updUserCities", {
         data: this.currData,
+        dailyData:this.dailyDataCurrCity
       });
+      this.search = ''
       // this.$router.go()
     },
   },
@@ -93,7 +97,9 @@ export default {
     currData() {
       return this.$store.getters["current/getCurrentWeather"][0];
     },
+    dailyDataCurrCity() {
+      return this.$store.getters["daily/getDailyDataCurrCity"];
+    },
   },
 };
 </script>
-

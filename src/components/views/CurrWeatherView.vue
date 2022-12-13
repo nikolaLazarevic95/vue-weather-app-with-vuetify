@@ -35,6 +35,12 @@
                   size="88"
                 ></v-icon>
                 <v-icon
+                  v-if="data.icon == 'Drizzle'"
+                  color="#90CAF9"
+                  icon="mdi-weather-rainy"
+                  size="88"
+                ></v-icon>
+                <v-icon
                   v-if="data.icon == 'Clouds'"
                   color="#90CAF9"
                   icon="mdi-cloud"

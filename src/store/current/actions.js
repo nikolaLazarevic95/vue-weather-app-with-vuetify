@@ -68,6 +68,7 @@ export default {
     // }
     await addDoc(collection(db, "cities"), {
       data: payload.data,
+      dailyData: payload.dailyData
     });
   },
 
@@ -155,7 +156,7 @@ export default {
   deleteCity(context) {
     const id = context.rootGetters.getSelectedID;
 
-    console.log(id);
+    // console.log(id);
     deleteDoc(doc(citiesCollectionRef, id));
   },
 

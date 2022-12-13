@@ -24,12 +24,12 @@ export default {
   },
   methods: {},
   computed: {
-    currUserCities() {
-      return this.$store.getters["current/getCities"];
-    },
-    currCityNamesArr() {
-      return this.$store.getters.getCurrCityNamesArray;
-    },
+    // currUserCities() {
+    //   return this.$store.getters["current/getCities"];
+    // },
+    // currCityNamesArr() {
+    //   return this.$store.getters.getCurrCityNamesArray;
+    // },
   },
   async created() {
     await this.$store.dispatch("current/getUserCities");
