@@ -1,28 +1,71 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="4">
+      <v-col cols="4" v-for="data in dailyData" :key="data.id">
         <v-card class="mx-auto" max-width="368" variant="tonal">
-          <v-card-item title="Florida"> </v-card-item>
+          <v-card-item :title="data.name"> </v-card-item>
 
-          <v-expand-transition>
-            <v-list class="bg-transparent">
-              <v-list-item
-                v-for="item in forecast"
-                :key="item.day"
-                :title="item.day"
-                :append-icon="item.icon"
-                :subtitle="item.temp"
-              >
-              </v-list-item>
-            </v-list>
-          </v-expand-transition>
+          <v-list class="bg-transparent" >
+            <v-list-item v-for="item in data.dailyData" :key="item.id" class="my-0 py-0">
+              <v-row >
+                <v-col>
+                  <v-card-subtitle>
+                    {{ item.date }}
+                  </v-card-subtitle>
+                </v-col>
+                <v-col>
+                  <span>{{ Math.round(item.tempMax) }}&deg;</span>
+                  <span>/ {{ Math.round(item.tempMin) }}&deg; </span>
+                </v-col>
+
+                <v-col class="text-right">
+                  <v-icon
+                    v-if="item.icon == 'Rain'"
+                    color="#90CAF9"
+                    icon="mdi-weather-pouring"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Clear'"
+                    color="#90CAF9"
+                    icon="mdi-white-balance-sunny"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Snow'"
+                    color="#90CAF9"
+                    icon="mdi-snowflake"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Drizzle'"
+                    color="#90CAF9"
+                    icon="mdi-weather-rainy"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Clouds'"
+                    color="#90CAF9"
+                    icon="mdi-cloud"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Thunderstorm'"
+                    color="#90CAF9"
+                    icon="mdi-weather-lightning"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Mist'"
+                    color="#90CAF9"
+                    icon="mdi-weather-fog"
+                  ></v-icon>
+                  <v-icon
+                    v-if="item.icon == 'Fog'"
+                    color="#90CAF9"
+                    icon="mdi-weather-fog"
+                  ></v-icon>
+                </v-col>
+              </v-row>
+            </v-list-item>
+          </v-list>
         </v-card>
       </v-col>
     </v-row>
-    <div>
-      {{ dailyData }}
-    </div>
   </v-container>
 </template>
 
@@ -30,11 +73,6 @@
 export default {
   data() {
     return {
-      APIkey: "55e1dfdb11ad536b67d886fb79270989",
-      city: "Dallas",
-
-      expand: true,
-      time: 0,
       forecast: [
         {
           day: "Tuesday",
@@ -54,9 +92,13 @@ export default {
     dailyData() {
       return this.$store.getters["daily/getDailyDataAllCities"];
     },
+    dailyDataDaily() {
+      return this.$store.getters["daily/getDailyDataAllCities"];
+    },
   },
   async created() {
     await this.$store.dispatch("daily/getDailyDataAllCities");
+    // console.log(this.dailyData);
   },
 };
 </script>

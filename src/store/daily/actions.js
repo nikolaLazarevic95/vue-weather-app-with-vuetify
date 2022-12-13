@@ -74,26 +74,35 @@ export default {
         icon: responseData.list[5].weather[0].main,
         tempMin: responseData.list[5].main.temp_min,
         tempMax: responseData.list[5].main.temp_max,
+        date: responseData.list[5].dt_txt
       },
       secondDay: {
         icon: responseData.list[13].weather[0].main,
         tempMin: responseData.list[13].main.temp_min,
         tempMax: responseData.list[13].main.temp_max,
+        date: responseData.list[13].dt_txt
+
       },
       thirdDay: {
         icon: responseData.list[21].weather[0].main,
         tempMin: responseData.list[21].main.temp_min,
         tempMax: responseData.list[21].main.temp_max,
+        date: responseData.list[21].dt_txt
+
       },
       fourthDay: {
         icon: responseData.list[29].weather[0].main,
         tempMin: responseData.list[29].main.temp_min,
         tempMax: responseData.list[29].main.temp_max,
+        date: responseData.list[29].dt_txt
+
       },
       fifthDay: {
         icon: responseData.list[37].weather[0].main,
         tempMin: responseData.list[37].main.temp_min,
         tempMax: responseData.list[37].main.temp_max,
+        date: responseData.list[37].dt_txt
+
       },
     };
 
@@ -116,26 +125,31 @@ export default {
               icon: doc.data().dailyData.firstDay.icon,
               tempMin: doc.data().dailyData.firstDay.tempMin,
               tempMax: doc.data().dailyData.firstDay.tempMax,
+              date: doc.data().dailyData.firstDay.date,
             },
             secondDay: {
               icon: doc.data().dailyData.secondDay.icon,
               tempMin: doc.data().dailyData.secondDay.tempMin,
               tempMax: doc.data().dailyData.secondDay.tempMax,
+              date: doc.data().dailyData.secondDay.date,
             },
             thirdDay: {
               icon: doc.data().dailyData.thirdDay.icon,
               tempMin: doc.data().dailyData.thirdDay.tempMin,
               tempMax: doc.data().dailyData.thirdDay.tempMax,
+              date: doc.data().dailyData.thirdDay.date,
             },
             fourthDay: {
               icon: doc.data().dailyData.fourthDay.icon,
               tempMin: doc.data().dailyData.fourthDay.tempMin,
               tempMax: doc.data().dailyData.fourthDay.tempMax,
+              date: doc.data().dailyData.fourthDay.date,
             },
             fifthDay: {
               icon: doc.data().dailyData.fifthDay.icon,
               tempMin: doc.data().dailyData.fifthDay.tempMin,
               tempMax: doc.data().dailyData.fifthDay.tempMax,
+              date: doc.data().dailyData.fifthDay.date,
             },
           },
         };

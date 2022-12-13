@@ -19,7 +19,7 @@
                 <v-icon
                   v-if="data.icon == 'Rain'"
                   color="#90CAF9"
-                  icon="mdi-weather-weather-pouring"
+                  icon="mdi-weather-pouring"
                   size="88"
                 ></v-icon>
                 <v-icon
@@ -79,7 +79,7 @@
               <v-list-item-subtitle>{{ data.humidity }}%</v-list-item-subtitle>
             </v-list-item>
           </div>
-          <v-card-actions>
+          <v-card-actions class="d-flex py-3 justify-space-between">
             <v-btn
               class="ml-1"
               variant="outlined"
@@ -87,6 +87,14 @@
             >
               Delete
               <v-icon end icon="mdi-delete"></v-icon>
+            </v-btn>
+            <v-btn
+              class="ml-1"
+              variant="outlined"
+              @click.stop="refreshCity(data.id)"
+            >
+              Refresh
+              <v-icon end icon="mdi-refresh-circle"></v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
