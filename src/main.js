@@ -4,7 +4,19 @@ import vuetify from "./plugins/vuetify";
 import { loadFonts } from "./plugins/webfontloader";
 import router from "./router";
 import store from "./store/index";
+import { format } from "date-fns";
 
 loadFonts();
 
-createApp(App).use(router).use(vuetify).use(store).mount("#app");
+const app = createApp(App);
+
+app.use(router);
+app.use(vuetify);
+app.use(store);
+app.config.globalProperties.$filters = {
+  niceDate(value) {
+    return format(new Date(value), "MMM d");
+  },
+};
+
+app.mount("#app");

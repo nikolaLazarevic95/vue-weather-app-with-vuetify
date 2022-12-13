@@ -20,34 +20,34 @@ export default {
     );
 
     const responseData = await response.json();
-    // console.log(responseData);
+    console.log(responseData);
     // const data = {
     //   name: responseData.city.name,
     //   firstDay: {
     //     // clouds: responseData.list[5].clouds.all,
     //     icon: responseData.list[5].weather[0].main,
-    //     tempMin: responseData.list[5].main.temp_min,
-    //     tempMax: responseData.list[5].main.temp_max,
+    //     tempMax: responseData.list[5].main.feels_like,
+    //     tempMin: responseData.list[5].main.feels_like,
     //   },
     //   secondDay: {
-    //     icon: responseData.list[13].weather[0].main,
-    //     tempMin: responseData.list[13].main.temp_min,
-    //     tempMax: responseData.list[13].main.temp_max,
+    //     icon: responseData.list[14].weather[0].main,
+    //     tempMax: responseData.list[14].main.feels_like,
+    //     tempMin: responseData.list[14].main.feels_like,
     //   },
     //   thirdDay: {
-    //     icon: responseData.list[21].weather[0].main,
-    //     tempMin: responseData.list[21].main.temp_min,
-    //     tempMax: responseData.list[21].main.temp_max,
+    //     icon: responseData.list[16].weather[0].main,
+    //     tempMax: responseData.list[16].main.feels_like,
+    //     tempMin: responseData.list[16].main.feels_like,
     //   },
     //   fourthDay: {
-    //     icon: responseData.list[29].weather[0].main,
-    //     tempMin: responseData.list[29].main.temp_min,
-    //     tempMax: responseData.list[29].main.temp_max,
+    //     icon: responseData.list[21].weather[0].main,
+    //     tempMax: responseData.list[21].main.feels_like,
+    //     tempMin: responseData.list[21].main.feels_like,
     //   },
     //   fifthDay: {
-    //     icon: responseData.list[37].weather[0].main,
-    //     tempMin: responseData.list[37].main.temp_min,
-    //     tempMax: responseData.list[37].main.temp_max,
+    //     icon: responseData.list[27].weather[0].main,
+    //     tempMax: responseData.list[27].main.feels_like,
+    //     tempMin: responseData.list[27].main.feels_like,
     //   },
     // };
 
@@ -71,37 +71,37 @@ export default {
     const data = {
       name: responseData.city.name,
       firstDay: {
-        icon: responseData.list[5].weather[0].main,
-        tempMin: responseData.list[5].main.temp_min,
-        tempMax: responseData.list[5].main.temp_max,
-        date: responseData.list[5].dt_txt
+        icon: responseData.list[0].weather[0].main,
+        tempMax: responseData.list[0].main.feels_like, //mora switch zbog api
+        tempMin: responseData.list[4].main.feels_like,
+        date: responseData.list[0].dt_txt
       },
       secondDay: {
-        icon: responseData.list[13].weather[0].main,
-        tempMin: responseData.list[13].main.temp_min,
-        tempMax: responseData.list[13].main.temp_max,
-        date: responseData.list[13].dt_txt
+        icon: responseData.list[8].weather[0].main,
+        tempMax: responseData.list[8].main.feels_like,
+        tempMin: responseData.list[12].main.feels_like,
+        date: responseData.list[8].dt_txt
 
       },
       thirdDay: {
-        icon: responseData.list[21].weather[0].main,
-        tempMin: responseData.list[21].main.temp_min,
-        tempMax: responseData.list[21].main.temp_max,
-        date: responseData.list[21].dt_txt
+        icon: responseData.list[16].weather[0].main,
+        tempMax: responseData.list[16].main.feels_like,
+        tempMin: responseData.list[20].main.feels_like,
+        date: responseData.list[16].dt_txt
 
       },
       fourthDay: {
-        icon: responseData.list[29].weather[0].main,
-        tempMin: responseData.list[29].main.temp_min,
-        tempMax: responseData.list[29].main.temp_max,
-        date: responseData.list[29].dt_txt
+        icon: responseData.list[21].weather[0].main,
+        tempMax: responseData.list[24].main.feels_like,
+        tempMin: responseData.list[21].main.feels_like,
+        date: responseData.list[21].dt_txt
 
       },
       fifthDay: {
-        icon: responseData.list[37].weather[0].main,
-        tempMin: responseData.list[37].main.temp_min,
-        tempMax: responseData.list[37].main.temp_max,
-        date: responseData.list[37].dt_txt
+        icon: responseData.list[27].weather[0].main,
+        tempMax: responseData.list[32].main.feels_like,
+        tempMin: responseData.list[27].main.feels_like,
+        date: responseData.list[27].dt_txt
 
       },
     };
@@ -123,32 +123,32 @@ export default {
           dailyData: {
             firstDay: {
               icon: doc.data().dailyData.firstDay.icon,
-              tempMin: doc.data().dailyData.firstDay.tempMin,
               tempMax: doc.data().dailyData.firstDay.tempMax,
+              tempMin: doc.data().dailyData.firstDay.tempMin,
               date: doc.data().dailyData.firstDay.date,
             },
             secondDay: {
               icon: doc.data().dailyData.secondDay.icon,
-              tempMin: doc.data().dailyData.secondDay.tempMin,
               tempMax: doc.data().dailyData.secondDay.tempMax,
+              tempMin: doc.data().dailyData.secondDay.tempMin,
               date: doc.data().dailyData.secondDay.date,
             },
             thirdDay: {
               icon: doc.data().dailyData.thirdDay.icon,
-              tempMin: doc.data().dailyData.thirdDay.tempMin,
               tempMax: doc.data().dailyData.thirdDay.tempMax,
+              tempMin: doc.data().dailyData.thirdDay.tempMin,
               date: doc.data().dailyData.thirdDay.date,
             },
             fourthDay: {
               icon: doc.data().dailyData.fourthDay.icon,
-              tempMin: doc.data().dailyData.fourthDay.tempMin,
               tempMax: doc.data().dailyData.fourthDay.tempMax,
+              tempMin: doc.data().dailyData.fourthDay.tempMin,
               date: doc.data().dailyData.fourthDay.date,
             },
             fifthDay: {
               icon: doc.data().dailyData.fifthDay.icon,
-              tempMin: doc.data().dailyData.fifthDay.tempMin,
               tempMax: doc.data().dailyData.fifthDay.tempMax,
+              tempMin: doc.data().dailyData.fifthDay.tempMin,
               date: doc.data().dailyData.fifthDay.date,
             },
           },

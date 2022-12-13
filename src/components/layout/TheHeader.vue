@@ -67,7 +67,7 @@ export default {
           text: "Hourly",
           route: "/hourly",
         },
-        { icon: "mdi-numeric-7", text: "Daily", route: "/daily" },
+        { icon: "mdi-numeric-5", text: "Daily", route: "/daily" },
         {
           icon: "mdi-biohazard",
           text: "Air Pollution",
