@@ -68,7 +68,8 @@ export default {
     // }
     await addDoc(collection(db, "cities"), {
       data: payload.data,
-      dailyData: payload.dailyData
+      dailyData: payload.dailyData,
+      hourlyData: payload.hourlyData
     });
   },
 

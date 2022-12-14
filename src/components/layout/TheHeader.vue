@@ -85,12 +85,16 @@ export default {
       await this.$store.dispatch("daily/getDailyDataCurrCity", {
         city: this.search,
       });
+      await this.$store.dispatch("hourly/getHourlyDataCurrCity", {
+        city: this.search,
+      });
       await this.$store.dispatch("current/updUserCities", {
         data: this.currData,
-        dailyData:this.dailyDataCurrCity
+        dailyData: this.dailyDataCurrCity,
+        hourlyData: this.hourlyDataCurrCity,
       });
-      this.search = ''
-      // this.$router.go()
+      // this.search = "";
+      this.$router.go();
     },
   },
   computed: {
@@ -99,6 +103,9 @@ export default {
     },
     dailyDataCurrCity() {
       return this.$store.getters["daily/getDailyDataCurrCity"];
+    },
+    hourlyDataCurrCity() {
+      return this.$store.getters["hourly/getHourlyCurrCityData"];
     },
   },
 };
