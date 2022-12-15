@@ -1,13 +1,12 @@
-// import { db } from "@/firebase";
-// // import { collection, getDocs, onSnapshot } from "firebase/firestore";
-// import {
-//   collection,
-//   onSnapshot,
-//   addDoc,
-//   doc,
-//   deleteDoc,
-//   // updateDoc,
-// } from "firebase/firestore";
+import { db } from "@/firebase";
+import {
+  collection,
+  onSnapshot,
+  // addDoc,
+  // doc,
+  // deleteDoc,
+  // updateDoc,
+} from "firebase/firestore";
 
 export default {
   async currAirPollutionCurrCity(context, payload) {
@@ -35,7 +34,7 @@ export default {
         `);
 
     const responseData = await response.json();
-    console.log(responseData);
+    // console.log(responseData);
 
     const data = {
       firstDay: {
@@ -54,7 +53,7 @@ export default {
         ammonia: responseData.list[48].components.nh3,
         date: responseData.list[48].dt,
       },
-      fourthDay: {
+      thirdDay: {
         aqi: responseData.list[72].main.aqi,
         carbonMonoxide: responseData.list[72].components.co,
         nitrogenMonoxide: responseData.list[72].components.no,
@@ -62,7 +61,7 @@ export default {
         ammonia: responseData.list[72].components.nh3,
         date: responseData.list[72].dt,
       },
-      fourthHour: {
+      fourthDay: {
         aqi: responseData.list[96].main.aqi,
         carbonMonoxide: responseData.list[96].components.co,
         nitrogenMonoxide: responseData.list[96].components.no,
@@ -71,16 +70,103 @@ export default {
         date: responseData.list[96].dt,
       },
       fifthDay: {
-        aqi: responseData.list[102].main.aqi,
-        carbonMonoxide: responseData.list[102].components.co,
-        nitrogenMonoxide: responseData.list[102].components.no,
-        nitrogenDioxide: responseData.list[102].components.no2,
-        ammonia: responseData.list[102].components.nh3,
-        date: responseData.list[102].dt,
+        aqi: responseData.list[100].main.aqi,
+        carbonMonoxide: responseData.list[100].components.co,
+        nitrogenMonoxide: responseData.list[100].components.no,
+        nitrogenDioxide: responseData.list[100].components.no2,
+        ammonia: responseData.list[100].components.nh3,
+        date: responseData.list[100].dt,
       },
     };
 
-    console.log(data);
+    // console.log(data);
     context.commit("setForecastAirPollutionCurrCity", data);
+  },
+
+  async getAllCitiesCurrPollution(context) {
+    onSnapshot(collection(db, "cities"), (querySnapshot) => {
+      const cities = [];
+      querySnapshot.forEach((doc) => {
+        const city = {
+          id: doc.id,
+          name: doc.data().data.name,
+          aqi: doc.data().currPollution.aqi,
+          ammonia: doc.data().currPollution.ammonia,
+          carbonMonoxide: doc.data().currPollution.carbonMonoxide,
+          nitrogenDioxide: doc.data().currPollution.nitrogenDioxide,
+          nitrogenMonoxide: doc.data().currPollution.nitrogenMonoxide,
+        };
+        cities.push(city);
+      });
+      // console.log(cities);
+      context.commit("setAllCitiesCurrPollution", cities);
+    });
+  },
+
+  async getAllCitiesForecastPollution(context) {
+    onSnapshot(collection(db, "cities"), (querySnapshot) => {
+      const cities = [];
+      querySnapshot.forEach((doc) => {
+        const city = {
+          id: doc.id,
+          name: doc.data().data.name,
+          forecastData: {
+            firstDay: {
+              aqi: doc.data().forecastPollution.firstDay.aqi,
+              ammonia: doc.data().forecastPollution.firstDay.ammonia,
+              carbonMonoxide:
+                doc.data().forecastPollution.firstDay.carbonMonoxide,
+              nitrogenDioxide:
+                doc.data().forecastPollution.firstDay.nitrogenDioxide,
+              nitrogenMonoxide:
+                doc.data().forecastPollution.firstDay.nitrogenMonoxide,
+            },
+            secondDay: {
+              aqi: doc.data().forecastPollution.secondDay.aqi,
+              ammonia: doc.data().forecastPollution.secondDay.ammonia,
+              carbonMonoxide:
+                doc.data().forecastPollution.secondDay.carbonMonoxide,
+              nitrogenDioxide:
+                doc.data().forecastPollution.secondDay.nitrogenDioxide,
+              nitrogenMonoxide:
+                doc.data().forecastPollution.secondDay.nitrogenMonoxide,
+            },
+            thirdDay: {
+              aqi: doc.data().forecastPollution.thirdDay.aqi,
+              ammonia: doc.data().forecastPollution.thirdDay.ammonia,
+              carbonMonoxide:
+                doc.data().forecastPollution.thirdDay.carbonMonoxide,
+              nitrogenDioxide:
+                doc.data().forecastPollution.thirdDay.nitrogenDioxide,
+              nitrogenMonoxide:
+                doc.data().forecastPollution.thirdDay.nitrogenMonoxide,
+            },
+            fourthDay: {
+              aqi: doc.data().forecastPollution.fourthDay.aqi,
+              ammonia: doc.data().forecastPollution.fourthDay.ammonia,
+              carbonMonoxide:
+                doc.data().forecastPollution.fourthDay.carbonMonoxide,
+              nitrogenDioxide:
+                doc.data().forecastPollution.fourthDay.nitrogenDioxide,
+              nitrogenMonoxide:
+                doc.data().forecastPollution.fourthDay.nitrogenMonoxide,
+            },
+            fifthDay: {
+              aqi: doc.data().forecastPollution.fifthDay.aqi,
+              ammonia: doc.data().forecastPollution.fifthDay.ammonia,
+              carbonMonoxide:
+                doc.data().forecastPollution.fifthDay.carbonMonoxide,
+              nitrogenDioxide:
+                doc.data().forecastPollution.fifthDay.nitrogenDioxide,
+              nitrogenMonoxide:
+                doc.data().forecastPollution.fifthDay.nitrogenMonoxide,
+            },
+          },
+        };
+        cities.push(city);
+
+        context.commit("setAllCitiesForecastPollution", cities);
+      });
+    });
   },
 };

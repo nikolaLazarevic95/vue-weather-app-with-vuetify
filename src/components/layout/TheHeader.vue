@@ -110,7 +110,6 @@ export default {
         currPollution: this.currPollution,
         forecastPollution: this.forecastPollution,
       });
-
       // this.search = "";
       // this.$router.go();
     },
@@ -140,6 +139,8 @@ export default {
       ];
     },
   },
-  created() {},
+  created() {
+    
+  },
 };
 </script>
