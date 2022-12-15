@@ -81,6 +81,7 @@
           </div>
           <v-card-actions class="d-flex py-3 justify-space-between">
             <v-btn
+              size="small"
               class="ml-1"
               variant="outlined"
               @click.stop="deleteCity(data.id)"
@@ -89,7 +90,8 @@
               <v-icon end icon="mdi-delete"></v-icon>
             </v-btn>
             <v-btn
-              class="ml-1"
+              size="small"
+              class="mr-1"
               variant="outlined"
               @click.stop="refreshCity(data.id)"
             >

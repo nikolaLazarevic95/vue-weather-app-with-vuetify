@@ -19,7 +19,7 @@
                       {{ $filters.niceDate(item.date) }}
                     </v-card-subtitle>
                   </v-col>
-                  <v-col class="text-center">
+                  <v-col class="text-center ml-7">
                     <span>{{ Math.round(item.tempMax) }}&deg;</span>
                     <span>/ {{ Math.round(item.tempMin) }}&deg; </span>
                   </v-col>
@@ -94,10 +94,7 @@ export default {
   computed: {
     dailyData() {
       return this.$store.getters["daily/getDailyDataAllCities"];
-    },
-    dailyDataDaily() {
-      return this.$store.getters["daily/getDailyDataAllCities"];
-    },    
+    },   
   },
   async created() {
     await this.$store.dispatch("daily/getDailyDataAllCities");

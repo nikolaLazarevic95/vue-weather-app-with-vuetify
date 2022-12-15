@@ -1,28 +1,31 @@
 <template>
   <nav>
+    <v-row>
     <v-app-bar flat prominent image="sky.jpg">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>WEATHER APP</v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <!-- <v-spacer></v-spacer> -->
 
-      <v-text-field
+      <v-col cols="3" class="mr-2">
+      <v-text-field 
         v-model="search"
         @keyup.enter="addCity"
-        class="moja pt-5"
+        class="pt-8 mr-12 field-center"
         placeholder="Add a City"
         dense
         filled
         clearable
-        append-inner-icon="mdi-magnify"
-      >
+        >
       </v-text-field>
+    </v-col>
+      <!-- append-inner-icon="mdi-magnify" -->
 
-      <v-btn class="ma-2">
+      <!-- <v-btn class="ma-2">
         <span>Sign Out</span>
         <v-icon end icon="mdi-exit-to-app"></v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" :mobile-breakpoint="768">
@@ -50,6 +53,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+  </v-row>
   </nav>
 </template>
 
