@@ -11,4 +11,7 @@ export default {
   getAPIKey(state) {
     return state.APIkey;
   },
+  getGeocoding(state) {
+    return state.geocoding;
+  }
 };

@@ -4,5 +4,8 @@ export default {
   },
   setCityNames(state, payload) {
     state.currCityNamesArr = payload;
-  }
+  },
+  setGeocoding(state, payload) {
+    state.geocoding = payload;
+  },
 };

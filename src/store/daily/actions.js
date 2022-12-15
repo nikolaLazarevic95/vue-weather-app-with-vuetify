@@ -20,46 +20,7 @@ export default {
     );
 
     const responseData = await response.json();
-    console.log(responseData);
-    // const data = {
-    //   name: responseData.city.name,
-    //   firstDay: {
-    //     // clouds: responseData.list[5].clouds.all,
-    //     icon: responseData.list[5].weather[0].main,
-    //     tempMax: responseData.list[5].main.feels_like,
-    //     tempMin: responseData.list[5].main.feels_like,
-    //   },
-    //   secondDay: {
-    //     icon: responseData.list[14].weather[0].main,
-    //     tempMax: responseData.list[14].main.feels_like,
-    //     tempMin: responseData.list[14].main.feels_like,
-    //   },
-    //   thirdDay: {
-    //     icon: responseData.list[16].weather[0].main,
-    //     tempMax: responseData.list[16].main.feels_like,
-    //     tempMin: responseData.list[16].main.feels_like,
-    //   },
-    //   fourthDay: {
-    //     icon: responseData.list[21].weather[0].main,
-    //     tempMax: responseData.list[21].main.feels_like,
-    //     tempMin: responseData.list[21].main.feels_like,
-    //   },
-    //   fifthDay: {
-    //     icon: responseData.list[27].weather[0].main,
-    //     tempMax: responseData.list[27].main.feels_like,
-    //     tempMin: responseData.list[27].main.feels_like,
-    //   },
-    // };
-
-    // await addDoc(collection(db, "daily"), {
-    //   data: data,
-    // });
-
-    // dailyCitiesData.push(data);
-    // } --od for loopa
-
-    // console.log(userCities);
-    // console.log(dailyCitiesData);
+    // console.log(responseData);
 
     if (!response.ok) {
       const error = new Error(
@@ -74,35 +35,31 @@ export default {
         icon: responseData.list[0].weather[0].main,
         tempMax: responseData.list[0].main.feels_like, //mora switch zbog api
         tempMin: responseData.list[4].main.feels_like,
-        date: responseData.list[0].dt_txt
+        date: responseData.list[0].dt_txt,
       },
       secondDay: {
         icon: responseData.list[8].weather[0].main,
         tempMax: responseData.list[8].main.feels_like,
         tempMin: responseData.list[12].main.feels_like,
-        date: responseData.list[8].dt_txt
-
+        date: responseData.list[8].dt_txt,
       },
       thirdDay: {
         icon: responseData.list[16].weather[0].main,
         tempMax: responseData.list[16].main.feels_like,
         tempMin: responseData.list[20].main.feels_like,
-        date: responseData.list[16].dt_txt
-
+        date: responseData.list[16].dt_txt,
       },
       fourthDay: {
         icon: responseData.list[21].weather[0].main,
         tempMax: responseData.list[24].main.feels_like,
         tempMin: responseData.list[21].main.feels_like,
-        date: responseData.list[21].dt_txt
-
+        date: responseData.list[21].dt_txt,
       },
       fifthDay: {
         icon: responseData.list[27].weather[0].main,
         tempMax: responseData.list[32].main.feels_like,
         tempMin: responseData.list[27].main.feels_like,
-        date: responseData.list[27].dt_txt
-
+        date: responseData.list[27].dt_txt,
       },
     };
 
@@ -153,7 +110,7 @@ export default {
             },
           },
         };
-        cities.push(city)
+        cities.push(city);
       });
       context.commit("setDailyDataAllCities", cities);
     });
