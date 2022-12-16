@@ -120,6 +120,8 @@ export default {
                 doc.data().forecastPollution.firstDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.firstDay.nitrogenMonoxide,
+              date:
+                doc.data().forecastPollution.firstDay.date,
             },
             secondDay: {
               aqi: doc.data().forecastPollution.secondDay.aqi,
@@ -130,6 +132,8 @@ export default {
                 doc.data().forecastPollution.secondDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.secondDay.nitrogenMonoxide,
+                date:
+                doc.data().forecastPollution.secondDay.date,
             },
             thirdDay: {
               aqi: doc.data().forecastPollution.thirdDay.aqi,
@@ -140,6 +144,8 @@ export default {
                 doc.data().forecastPollution.thirdDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.thirdDay.nitrogenMonoxide,
+                date:
+                doc.data().forecastPollution.thirdDay.date,
             },
             fourthDay: {
               aqi: doc.data().forecastPollution.fourthDay.aqi,
@@ -150,6 +156,8 @@ export default {
                 doc.data().forecastPollution.fourthDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.fourthDay.nitrogenMonoxide,
+                date:
+                doc.data().forecastPollution.fourthDay.date,
             },
             fifthDay: {
               aqi: doc.data().forecastPollution.fifthDay.aqi,
@@ -160,6 +168,8 @@ export default {
                 doc.data().forecastPollution.fifthDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.fifthDay.nitrogenMonoxide,
+                date:
+                doc.data().forecastPollution.fifthDay.date,
             },
           },
         };

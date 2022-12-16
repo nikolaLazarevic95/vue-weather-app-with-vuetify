@@ -5,7 +5,8 @@
         <v-card class="mx-auto" max-width="368" variant="tonal">
           <v-card-item :title="data.name">
             <template v-slot:subtitle>
-              Real feel <span>{{ Math.round(data.feelsLike) }}&deg;C</span>
+              Real feel
+              <span>{{ Math.round(data.feelsLike) }}&deg;C </span>
             </template>
           </v-card-item>
 

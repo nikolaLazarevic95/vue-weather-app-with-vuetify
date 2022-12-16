@@ -17,6 +17,9 @@ app.config.globalProperties.$filters = {
   niceDate(value) {
     return format(new Date(value), "MMM d");
   },
+  niceDateUnix(value) {
+    return format(new Date(value * 1000), "MMM d");
+  },
   niceHourlyDate(value) {
     return format(new Date(value), "kk:mm");
   },
