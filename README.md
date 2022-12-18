@@ -1,6 +1,6 @@
 <b>📝 Weather.js 📝 </b>
 
-Simple webiste to help you find everything you need to know before you step out of the house :)
+Webiste to help you find everything about the weather before you step out of the house :)
 
 --Link to the application--
 https://laza-weather-app.netlify.app
