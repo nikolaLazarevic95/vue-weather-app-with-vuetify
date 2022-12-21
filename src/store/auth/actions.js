@@ -12,7 +12,7 @@
 export default {
   async getLatitudeLongitude(context, payload) {
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${payload.city}&appid=${context.rootGetters.getAPIKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${payload.city}&appid=${context.rootGetters.getAPIKey}`
     );
 
     const responseData = await response.json();
