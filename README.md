@@ -17,8 +17,9 @@ https://laza-weather-app.netlify.app
 -<a href ="https://firebase.google.com/">Google Firebase for backend</a>
 
 <b>⚡ Installation  </b>
+
   -clone repo
   -npm install
-  -npm run
+  -npm run serve
 
 
