@@ -38,6 +38,14 @@ export default {
 
     const data = {
       firstDay: {
+        aqi: responseData.list[0].main.aqi,
+        carbonMonoxide: responseData.list[0].components.co,
+        nitrogenMonoxide: responseData.list[0].components.no,
+        nitrogenDioxide: responseData.list[0].components.no2,
+        ammonia: responseData.list[0].components.nh3,
+        date: responseData.list[0].dt,
+      },
+      secondDay: {
         aqi: responseData.list[24].main.aqi,
         carbonMonoxide: responseData.list[24].components.co,
         nitrogenMonoxide: responseData.list[24].components.no,
@@ -45,7 +53,7 @@ export default {
         ammonia: responseData.list[24].components.nh3,
         date: responseData.list[24].dt,
       },
-      secondDay: {
+      thirdDay: {
         aqi: responseData.list[48].main.aqi,
         carbonMonoxide: responseData.list[48].components.co,
         nitrogenMonoxide: responseData.list[48].components.no,
@@ -53,7 +61,7 @@ export default {
         ammonia: responseData.list[48].components.nh3,
         date: responseData.list[48].dt,
       },
-      thirdDay: {
+      fourthDay: {
         aqi: responseData.list[72].main.aqi,
         carbonMonoxide: responseData.list[72].components.co,
         nitrogenMonoxide: responseData.list[72].components.no,
@@ -61,22 +69,14 @@ export default {
         ammonia: responseData.list[72].components.nh3,
         date: responseData.list[72].dt,
       },
-      fourthDay: {
-        aqi: responseData.list[96].main.aqi,
-        carbonMonoxide: responseData.list[96].components.co,
-        nitrogenMonoxide: responseData.list[96].components.no,
-        nitrogenDioxide: responseData.list[96].components.no2,
-        ammonia: responseData.list[96].components.nh3,
-        date: responseData.list[96].dt,
-      },
-      fifthDay: {
-        aqi: responseData.list[100].main.aqi,
-        carbonMonoxide: responseData.list[100].components.co,
-        nitrogenMonoxide: responseData.list[100].components.no,
-        nitrogenDioxide: responseData.list[100].components.no2,
-        ammonia: responseData.list[100].components.nh3,
-        date: responseData.list[100].dt,
-      },
+      // fifthDay: {
+      //   aqi: responseData.list[90].main.aqi,
+      //   carbonMonoxide: responseData.list[90].components.co,
+      //   nitrogenMonoxide: responseData.list[90].components.no,
+      //   nitrogenDioxide: responseData.list[90].components.no2,
+      //   ammonia: responseData.list[90].components.nh3,
+      //   date: responseData.list[90].dt,
+      // },
     };
 
     // console.log(data);
@@ -120,8 +120,7 @@ export default {
                 doc.data().forecastPollution.firstDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.firstDay.nitrogenMonoxide,
-              date:
-                doc.data().forecastPollution.firstDay.date,
+              date: doc.data().forecastPollution.firstDay.date,
             },
             secondDay: {
               aqi: doc.data().forecastPollution.secondDay.aqi,
@@ -132,8 +131,7 @@ export default {
                 doc.data().forecastPollution.secondDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.secondDay.nitrogenMonoxide,
-                date:
-                doc.data().forecastPollution.secondDay.date,
+              date: doc.data().forecastPollution.secondDay.date,
             },
             thirdDay: {
               aqi: doc.data().forecastPollution.thirdDay.aqi,
@@ -144,8 +142,7 @@ export default {
                 doc.data().forecastPollution.thirdDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.thirdDay.nitrogenMonoxide,
-                date:
-                doc.data().forecastPollution.thirdDay.date,
+              date: doc.data().forecastPollution.thirdDay.date,
             },
             fourthDay: {
               aqi: doc.data().forecastPollution.fourthDay.aqi,
@@ -156,21 +153,19 @@ export default {
                 doc.data().forecastPollution.fourthDay.nitrogenDioxide,
               nitrogenMonoxide:
                 doc.data().forecastPollution.fourthDay.nitrogenMonoxide,
-                date:
-                doc.data().forecastPollution.fourthDay.date,
+              date: doc.data().forecastPollution.fourthDay.date,
             },
-            fifthDay: {
-              aqi: doc.data().forecastPollution.fifthDay.aqi,
-              ammonia: doc.data().forecastPollution.fifthDay.ammonia,
-              carbonMonoxide:
-                doc.data().forecastPollution.fifthDay.carbonMonoxide,
-              nitrogenDioxide:
-                doc.data().forecastPollution.fifthDay.nitrogenDioxide,
-              nitrogenMonoxide:
-                doc.data().forecastPollution.fifthDay.nitrogenMonoxide,
-                date:
-                doc.data().forecastPollution.fifthDay.date,
-            },
+            // fifthDay: {
+            //   aqi: doc.data().forecastPollution.fifthDay.aqi,
+            //   ammonia: doc.data().forecastPollution.fifthDay.ammonia,
+            //   carbonMonoxide:
+            //     doc.data().forecastPollution.fifthDay.carbonMonoxide,
+            //   nitrogenDioxide:
+            //     doc.data().forecastPollution.fifthDay.nitrogenDioxide,
+            //   nitrogenMonoxide:
+            //     doc.data().forecastPollution.fifthDay.nitrogenMonoxide,
+            //   date: doc.data().forecastPollution.fifthDay.date,
+            // },
           },
         };
         cities.push(city);

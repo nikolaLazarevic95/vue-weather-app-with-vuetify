@@ -9,7 +9,7 @@
         <v-card class="mx-auto" max-width="368" variant="tonal">
           <v-card-item :title="data.name"> </v-card-item>
 
-          <v-row >
+          <v-row>
             <v-col class="mr-3"></v-col>
             <v-col class="ml-12 pr-0 mr-0 text-center">
               <p class="font-weight-thin">car. mon. μg/m3</p>
@@ -17,7 +17,7 @@
             <v-col class="text-center p-0 ml-4 mr-1">
               <p class="font-weight-thin">nitr. mon. μg/m3</p>
             </v-col>
-            <v-col class="text-center p-0 ml-0 mr-3" >
+            <v-col class="text-center p-0 ml-0 mr-3">
               <p class="font-weight-thin">Air quality index</p>
             </v-col>
           </v-row>
