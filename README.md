@@ -1,24 +1,24 @@
-# imageapp
+<b>📝 Weather.js 📝 </b>
 
-## Project setup
-```
-npm install
-```
+Webiste to help you find everything about the weather before you step out of the house :)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+--Link to the application--
+https://laza-weather-app.netlify.app
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+<b>🛠️ Technologies used</b>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ -<a href="https://vuejs.org/">Vue</a>
+ 
+ -<a href ="https://prettier.io/">Prettier for code readability</a>  
+ 
+-<a href ="https://app.netlify.com/teams/nikolalazarevic95/overview/">Netlify for deploying the website</a>  
+
+-<a href ="https://firebase.google.com/">Google Firebase for backend</a>
+
+<b>⚡ Installation  </b>
+  -clone repo
+  -npm install
+  -npm run
+
+
