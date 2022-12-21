@@ -19,6 +19,6 @@ https://laza-weather-app.netlify.app
 <b>⚡ Installation  </b>
   -clone repo
   -npm install
-  -npm run
+  -npm run serve
 
 
