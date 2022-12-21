@@ -11,7 +11,7 @@ import {
 export default {
   async currAirPollutionCurrCity(context, payload) {
     const response =
-      await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${payload.lat}&lon=${payload.lon}&appid=${context.rootGetters.getAPIKey}
+      await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${payload.lat}&lon=${payload.lon}&appid=${context.rootGetters.getAPIKey}
         `);
 
     const responseData = await response.json();
@@ -30,7 +30,7 @@ export default {
   },
   async forecastAirPollutionCurrCity(context, payload) {
     const response =
-      await fetch(`http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${payload.lat}&lon=${payload.lon}&cnt=5&appid=${context.rootGetters.getAPIKey}
+      await fetch(`https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${payload.lat}&lon=${payload.lon}&cnt=5&appid=${context.rootGetters.getAPIKey}
         `);
 
     const responseData = await response.json();
